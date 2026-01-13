@@ -20,6 +20,7 @@ def get_embedding_model():
                     model_name=settings.EMBEDDING_MODEL_ID,
                     max_length=settings.EMBEDDING_DIMENSION,
                     embed_batch_size=settings.EMBEDDING_BATCH_SIZE,
+                    cache_folder=settings.EMBEDDING_MODEL_DIR,
                     device=settings.DEVICE,
                     normalize=True,
                     trust_remote_code=True,  # google/embeddinggemma-300m Uses custom model code executed locally when the model is loaded

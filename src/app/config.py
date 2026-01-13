@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     DOCUMENT_STORE_DIR: str = "./storage"
 
     EMBEDDING_MODEL_ID: str = "Omartificial-Intelligence-Space/AraGemma-Embedding-300m"
+    EMBEDDING_MODEL_DIR: str = "/models"
     EMBEDDING_BATCH_SIZE: int = 10  # optimize based on available VRAM
     EMBEDDING_DIMENSION: int = 768
     EMBEDDING_CHUNK_SIZE: int = (
