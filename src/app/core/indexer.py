@@ -33,7 +33,7 @@ def index_embed_pdf(path):
 
         page = doc.metadata["page"]
         logger.debug("Loaded page %s of document %s with ID %s", page, path, doc.id_)
-        Path(f"{path}-{page}.md").write_bytes(doc.text.encode())
+        # Path(f"{path}-{page}.md").write_bytes(doc.text.encode())
 
         # Optional: store custom metadata
         doc.metadata["file_name"] = file_name

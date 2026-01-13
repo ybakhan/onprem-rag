@@ -139,6 +139,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "deepl" },
     { name = "huggingface-hub", extra = ["cli"] },
     { name = "pylint" },
 ]
@@ -150,15 +151,16 @@ requires-dist = [
     { name = "llama-index", specifier = "==0.14.12" },
     { name = "llama-index-embeddings-huggingface", specifier = "==0.6.1" },
     { name = "llama-index-vector-stores-chroma", specifier = "==0.5.5" },
-    { name = "pydantic-settings" },
+    { name = "pydantic-settings", specifier = "==2.12.0" },
     { name = "pymupdf4llm", specifier = "==0.2.9" },
-    { name = "python-dotenv" },
+    { name = "python-dotenv", specifier = "==1.2.1" },
     { name = "sentence-transformers", specifier = "==5.2.0" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "huggingface-hub", extras = ["cli"] },
+    { name = "deepl", specifier = "==1.27.0" },
+    { name = "huggingface-hub", extras = ["cli"], specifier = "==0.36.0" },
     { name = "pylint", specifier = ">=4.0.4" },
 ]
 
@@ -451,6 +453,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/82/a3/c91a087ab21f1047db328c1d3eb5d1ff0e52de9e74f9f6f6fa14cdd93d58/debugpy-1.8.19-cp314-cp314-win32.whl", hash = "sha256:0601708223fe1cd0e27c6cce67a899d92c7d68e73690211e6788a4b0e1903f5b", size = 5286388, upload-time = "2025-12-15T21:54:00.687Z" },
     { url = "https://files.pythonhosted.org/packages/17/b8/bfdc30b6e94f1eff09f2dc9cc1f9cd1c6cde3d996bcbd36ce2d9a4956e99/debugpy-1.8.19-cp314-cp314-win_amd64.whl", hash = "sha256:8e19a725f5d486f20e53a1dde2ab8bb2c9607c40c00a42ab646def962b41125f", size = 5327741, upload-time = "2025-12-15T21:54:02.148Z" },
     { url = "https://files.pythonhosted.org/packages/25/3e/e27078370414ef35fafad2c06d182110073daaeb5d3bf734b0b1eeefe452/debugpy-1.8.19-py2.py3-none-any.whl", hash = "sha256:360ffd231a780abbc414ba0f005dad409e71c78637efe8f2bd75837132a41d38", size = 5292321, upload-time = "2025-12-15T21:54:16.024Z" },
+]
+
+[[package]]
+name = "deepl"
+version = "1.27.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/15/19/0a4ac6b1a6fbe964d786b418f8d7ce5d4e920e296cc0721370dc6e9b4785/deepl-1.27.0.tar.gz", hash = "sha256:8d83a53d958ffa96388f5ecd6425a9d9d931144c16c05c7a84eceb9a1454bb92", size = 51263, upload-time = "2025-12-11T13:13:48.633Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/26/98/95d6219e102a8a6be2310c3076599e0678b862dc642c25a117335b9a3998/deepl-1.27.0-py3-none-any.whl", hash = "sha256:97cca5ed3be23353c199889c442ca7bda4c3f03327e92d7797c077d5cfc9b61f", size = 46267, upload-time = "2025-12-11T13:13:47.493Z" },
 ]
 
 [[package]]
