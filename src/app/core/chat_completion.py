@@ -8,10 +8,10 @@ from app.config import settings
 logger = logging.getLogger(__name__)
 
 
-def chat_completion(question):
+def chat_completion(question, lang):
     """Generate a chat completion response using retrieved context and chat completion model."""
     context = query(question)
-    prompt = generate_prompt(question, context)
+    prompt = generate_prompt(question, context, lang)
 
     payload = {
         "model": settings.CHAT_COMPLETION_MODEL_ID,
@@ -36,3 +36,4 @@ def chat_completion(question):
     )
 
     logger.debug("Chat completion response\n%s", json.dumps(response.json(), indent=2))
+    return response
