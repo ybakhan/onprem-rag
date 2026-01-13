@@ -1,31 +1,13 @@
 # pylint: skip-file
-import torch
-from transformers import pipeline
+import json
+from app.core.chat_completion_local import chat_completion_local
 
-pipe = pipeline(
-    "text-generation",
-    model="silma-ai/SILMA-Kashif-2B-Instruct-v1.0",
-    model_kwargs={"torch_dtype": torch.bfloat16},
-    device="mps",  # change on non Mac device
-)
+SAMPLE_QUESTION = "كيف يمكن الوصول إلى المكتبات العامة في كندا؟"  # "How to access public libraries in Canada?"
 
-messages = [
-    {
-        "role": "user",
-        "content": """
-            أجب على السؤال بناءً على السياق أدناه
+response = chat_completion_local(SAMPLE_QUESTION, "ar")
 
-            السياق:
-            تشمل الاتفاقيات رسوم حمل سنوية ثابت قدها 30 مليون جنيه إسترليني للقنوات نظراً لأن كلاً من مزوديها قادرين على تأمين دفعات إضافية إذا ما حققت هذه القنوات أهدافاً متعلقةً بالأداء.
-            لا يوجد حالياً ما يشير إلى ما إذا كان الاتفاق الجديد يشمل محتوىً إضافياً كالفيديو عند الطلب والدقة العالية ، كذلك الذي سبق أن قدمته بي سكاي بي.
-            وقد وافقت كل من بي سكاي بي و فيرجين ميديا على إنهاء الدعاوى القضائية بالمحكمة العليا ضد بعضهما بشأن معاليم الحمل التي تخص قنواتهما الأساسية.
+# assistant_response = response[0]["generated_text"][-1]["content"].strip()
 
-            السؤال: ماسم الشركة التي وافقت على إنهاء دعواها القضائية ضد بي سكاي بي بالمحكمة العليا؟
-            الإجابة:
-            """,
-    },
-]
-
-outputs = pipe(messages, max_new_tokens=600)
-assistant_response = outputs[0]["generated_text"][-1]["content"].strip()
-print(assistant_response)
+# save to file for better Arabic text display
+with open("response.json", "w", encoding="utf-8") as f:
+    json.dump(response, f, indent=2, ensure_ascii=False)
