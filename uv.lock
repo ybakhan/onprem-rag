@@ -150,7 +150,7 @@ requires-dist = [
     { name = "llama-index-embeddings-huggingface", specifier = "==0.6.1" },
     { name = "llama-index-vector-stores-chroma", specifier = "==0.5.5" },
     { name = "pydantic-settings" },
-    { name = "pymupdf4llm", specifier = "==0.2.8" },
+    { name = "pymupdf4llm", specifier = "==0.2.9" },
     { name = "python-dotenv" },
     { name = "sentence-transformers", specifier = "==5.2.0" },
 ]
@@ -2345,15 +2345,15 @@ wheels = [
 
 [[package]]
 name = "pymupdf4llm"
-version = "0.2.8"
+version = "0.2.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pymupdf" },
     { name = "tabulate" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c2/ff/d2e856ff5db5fa57ebf13ae04de4da6c203f5fb17507c0dd21ffd0ae4a17/pymupdf4llm-0.2.8.tar.gz", hash = "sha256:c4f9815cff210cef45123e93ae3a6f802e0dc1d1ad4534a4a463c000aaec98fd", size = 66867, upload-time = "2026-01-04T16:38:30.015Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/cb/25/40ce2f199d97439bff28d9fb3723d68995905b98cba113873d9ff6cfd013/pymupdf4llm-0.2.9.tar.gz", hash = "sha256:6a3e156d1f5724353ae44c18b86b4c5eefcc0d8599eb73a0e92f8137fcbce012", size = 70453, upload-time = "2026-01-10T10:18:00.2Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/58/d5/47e14346b6f57cbc7456cc24ded697b4037b399ff56ed12afccbd202361d/pymupdf4llm-0.2.8-py3-none-any.whl", hash = "sha256:e60587d151223fc9e118661a9c7bb04b04ae928187c201a14d60ac8a42963591", size = 68637, upload-time = "2026-01-04T16:38:32.412Z" },
+    { url = "https://files.pythonhosted.org/packages/52/6f/7312cb3d220b252defb1205a5b9d7e074e1c0883d91c461227b2bd3b7fa8/pymupdf4llm-0.2.9-py3-none-any.whl", hash = "sha256:ea9eb3b72765e1970374a37ba7bdc6b1117b0e3ceea5d48b530f49654d8adc94", size = 72286, upload-time = "2026-01-10T10:18:03.805Z" },
 ]
 
 [[package]]
