@@ -1,0 +1,28 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "RAG Application"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "sentence-transformers==5.2.0",
+    "pymupdf4llm==0.2.8",
+    "llama_index==0.14.12",
+    "llama-index-embeddings-huggingface==0.6.1",
+    "llama-index-vector-stores-chroma==0.5.5",
+    "chromadb==1.4.0",
+    "pydantic-settings",
+    "python-dotenv",
+    "debugpy>=1.8.19",
+]
+
+
+[build-system]
+requires = ["uv_build>=0.9.23,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pylint>=4.0.4"]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = ["missing-module-docstring"]
