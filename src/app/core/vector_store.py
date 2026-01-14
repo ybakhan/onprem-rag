@@ -1,6 +1,6 @@
+import logging
 from threading import Lock
 import chromadb
-import logging
 from llama_index.core import VectorStoreIndex
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from app.config import settings

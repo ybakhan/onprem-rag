@@ -27,7 +27,10 @@ def chat_completion(question, lang):
     }
     logger.debug("Chat completion request\n%s", json.dumps(payload, indent=2))
 
-    url = f"http://{settings.CHAT_COMPLETION_HOST}:{settings.CHAT_COMPLETION_PORT}/v1/chat/completions"
+    url = (
+        f"http://{settings.CHAT_COMPLETION_HOST}:"
+        f"{settings.CHAT_COMPLETION_PORT}/v1/chat/completions"
+    )
     response = requests.post(
         url=url,
         headers={"Content-Type": "application/json"},

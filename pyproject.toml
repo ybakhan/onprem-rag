@@ -22,7 +22,12 @@ requires = ["uv_build>=0.9.23,<0.10.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["pylint>=4.0.4", "huggingface_hub[cli]==0.36.0", "deepl==1.27.0"]
+dev = [
+    "pylint>=4.0.4",
+    "huggingface_hub[cli]>=0.36.0",
+    "deepl>=1.27.0",
+    "pytest>=9.0.2",
+]
 
 [tool.pylint."MESSAGES CONTROL"]
 disable = ["missing-module-docstring"]

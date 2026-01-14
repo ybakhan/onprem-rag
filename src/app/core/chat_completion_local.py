@@ -1,4 +1,3 @@
-import json
 import logging
 import torch
 from transformers import pipeline
@@ -24,7 +23,9 @@ pipe = pipeline(
 
 
 def chat_completion_local(question, lang):
-    """Generate a chat completion response using retrieved context and local chat completion model."""
+    """
+    Generate a chat completion response using retrieved context and local chat completion model.
+    """
     context = query(question)
     prompt = generate_prompt(question, context, lang)
 
@@ -39,6 +40,7 @@ def chat_completion_local(question, lang):
     outputs = pipe(
         text_inputs=text_inputs, max_new_tokens=settings.CHAT_COMPLETION_MAX_TOKENS
     )
+    # import json
     # logger.debug("Chat completion response\n%s", json.dumps(outputs, indent=2))
     # assistant_response = outputs[0]["generated_text"][-1]["content"].strip()
 

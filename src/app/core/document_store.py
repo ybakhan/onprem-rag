@@ -16,7 +16,8 @@ logger = logging.getLogger(__name__)
 def get_document_store():
     """
     Get or create a document store instance with thread-safe singleton pattern.
-    The docstore exists as backup / source of truth, and for compatibility with vector DBs that don't store text
+    The docstore exists as backup / source of truth, and
+    for compatibility with vector DBs that don't store text
     """
     global _DOCUMENT_STORE  # pylint: disable=global-statement
 
