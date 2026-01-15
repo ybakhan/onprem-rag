@@ -38,5 +38,8 @@ def chat_completion(question, lang):
         timeout=settings.CHAT_COMPLETION_TIMEOUT_SECONDS,
     )
 
-    logger.debug("Chat completion response\n%s", json.dumps(response.json(), indent=2))
-    return response
+    data = response.json()
+    logger.debug("Chat completion response\n%s", json.dumps(data, indent=2))
+
+    answer = data["choices"][0]["message"]["content"]
+    return answer

@@ -39,7 +39,7 @@ def index_embed_pdf(path):
         doc.metadata["file_name"] = file_name
 
     # Run the pipeline → returns only **new/updated** nodes, skips unchanged documents, upserts changed ones into ChromaDB
-    get_ingestion_pipeline().run(
+    documents = get_ingestion_pipeline().run(
         documents=llama_docs,
         show_progress=True,
     )
@@ -48,3 +48,5 @@ def index_embed_pdf(path):
     persist_document_store()
 
     logger.info("Indexed document %s", path)
+
+    return documents

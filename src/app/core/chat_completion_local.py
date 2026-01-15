@@ -1,3 +1,4 @@
+import json
 import logging
 import torch
 from transformers import pipeline
@@ -35,13 +36,12 @@ def chat_completion_local(question, lang):
             "content": prompt,
         },
     ]
-    # logger.debug("Chat completion local request\n%s", json.dumps(text_inputs, indent=2))
+    logger.debug("Chat completion local request\n%s", json.dumps(text_inputs, indent=2))
 
     outputs = pipe(
         text_inputs=text_inputs, max_new_tokens=settings.CHAT_COMPLETION_MAX_TOKENS
     )
-    # import json
-    # logger.debug("Chat completion response\n%s", json.dumps(outputs, indent=2))
-    # assistant_response = outputs[0]["generated_text"][-1]["content"].strip()
+    logger.debug("Chat completion response\n%s", json.dumps(outputs, indent=2))
 
-    return outputs
+    answer = outputs[0]["generated_text"][-1]["content"].strip()
+    return answer

@@ -160,10 +160,10 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "deepl", specifier = "==1.27.0" },
-    { name = "huggingface-hub", extras = ["cli"], specifier = "==0.36.0" },
+    { name = "deepl", specifier = ">=1.27.0" },
+    { name = "huggingface-hub", extras = ["cli"], specifier = ">=0.36.0" },
     { name = "pylint", specifier = ">=4.0.4" },
-    { name = "pytest", specifier = "==9.0.2" },
+    { name = "pytest", specifier = ">=9.0.2" },
 ]
 
 [[package]]

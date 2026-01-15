@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     CHAT_COMPLETION_MODEL_ID: str = "silma-ai/SILMA-Kashif-2B-Instruct-v1.0"
     CHAT_COMPLETION_TIMEOUT_SECONDS: int = 30
     CHAT_COMPLETION_MAX_TOKENS: int = 512
-    CHAT_COMPLETION_TEMPERATURE: int = 0
+    CHAT_COMPLETION_TEMPERATURE: float = 0.5
     CHAT_COMPLETION_TOP_P: float = 0.95
 
     DEVICE: str = "cpu"
