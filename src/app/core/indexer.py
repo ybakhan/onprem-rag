@@ -4,13 +4,14 @@ from pathlib import Path
 import pymupdf4llm
 from app.core.document_store import persist_document_store
 from app.core.ingestion_pipeline import get_ingestion_pipeline
+from app.core.common import METADATA_FIELD_NAME_LANG
 
 pdf_markdown_reader = pymupdf4llm.LlamaMarkdownReader()
 
 logger = logging.getLogger(__name__)
 
 
-def index_embed_pdf(path):
+def index_embed_pdf(path, lang):
     """Index and embed PDF documents from the given path into the vector store."""
 
     # load document pages
@@ -35,8 +36,8 @@ def index_embed_pdf(path):
         logger.debug("Loaded page %s of document %s with ID %s", page, path, doc.id_)
         # Path(f"{path}-{page}.md").write_bytes(doc.text.encode())
 
-        # Optional: store custom metadata
         doc.metadata["file_name"] = file_name
+        doc.metadata[METADATA_FIELD_NAME_LANG] = lang
 
     # Run the pipeline → returns only **new/updated** nodes, skips unchanged documents, upserts changed ones into ChromaDB
     documents = get_ingestion_pipeline().run(

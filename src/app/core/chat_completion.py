@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 def chat_completion(question, lang):
     """Generate a chat completion response using retrieved context and chat completion model."""
-    context = query(question)
+    context = query(question, lang)
     prompt = generate_prompt(question, context, lang)
 
     payload = {

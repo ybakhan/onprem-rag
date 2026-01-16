@@ -38,11 +38,11 @@ def setup():
 def test_index_embed(lang, question):
     document_path = str(Path(__file__).parent / "docs" / lang / f"health-care-{lang}.pdf")
 
-    documents = index_embed_pdf(document_path)
+    documents = index_embed_pdf(document_path, lang)
     assert len(documents) > 0
 
     # indexing of same document should be skipped
-    documents = index_embed_pdf(document_path)
+    documents = index_embed_pdf(document_path, lang)
     assert len(documents) == 0
 
     answer = chat_completion(question, lang)

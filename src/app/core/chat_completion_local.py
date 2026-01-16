@@ -27,7 +27,7 @@ def chat_completion_local(question, lang):
     """
     Generate a chat completion response using retrieved context and local chat completion model.
     """
-    context = query(question)
+    context = query(question, lang)
     prompt = generate_prompt(question, context, lang)
 
     text_inputs = [

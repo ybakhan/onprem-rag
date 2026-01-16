@@ -2,7 +2,7 @@ from pathlib import Path
 from app.core.indexer import index_embed_pdf
 
 
-def index_dir(directory_path):
+def index_dir(directory_path, lang):
     """Index all PDF files in the specified directory."""
     print(f"Indexing PDF files in: {directory_path}")
     print("-" * 50)
@@ -15,8 +15,8 @@ def index_dir(directory_path):
             and path.suffix.lower() == ".pdf"
             and not path.name.startswith(".")
         ):
-            index_embed_pdf(path)
+            index_embed_pdf(path, lang)
 
 
-index_dir("./tests/docs/en")
-index_dir("./tests/docs/ar")
+index_dir("./tests/docs/en", "en")
+index_dir("./tests/docs/ar", "ar")
