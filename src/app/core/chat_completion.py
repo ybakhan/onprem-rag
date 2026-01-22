@@ -1,9 +1,11 @@
 import json
 import logging
 import requests
+from requests.exceptions import Timeout, HTTPError, JSONDecodeError
 from app.core.query import query
 from app.core.prompt import generate_prompt
 from app.config import settings
+from app.core.exceptions import ChatCompletionTimeoutError, ChatCompletionError
 
 logger = logging.getLogger(__name__)
 
@@ -31,12 +33,29 @@ def chat_completion(question, lang):
         f"http://{settings.CHAT_COMPLETION_HOST}:"
         f"{settings.CHAT_COMPLETION_PORT}/v1/chat/completions"
     )
-    response = requests.post(
-        url=url,
-        headers={"Content-Type": "application/json"},
-        json=payload,
-        timeout=settings.CHAT_COMPLETION_TIMEOUT_SECONDS,
-    )
+
+    try:
+        response = requests.post(
+            url=url,
+            headers={"Content-Type": "application/json"},
+            json=payload,
+            timeout=settings.CHAT_COMPLETION_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+
+    except Timeout as e:
+        raise ChatCompletionTimeoutError() from e
+    
+    except HTTPError as e:
+        raise ChatCompletionError(
+            status_code=e.response.status_code,
+            message=e.response.text[:300]
+        ) from e
+
+    except Exception as e:
+        raise ChatCompletionError(
+            message=str(e)
+        ) from e
 
     data = response.json()
     logger.debug("Chat completion response\n%s", json.dumps(data, indent=2))

@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     CHAT_COMPLETION_MAX_TOKENS: int = 512
     CHAT_COMPLETION_TEMPERATURE: float = 0.5
     CHAT_COMPLETION_TOP_P: float = 0.95
+    CHAT_COMPLETION_MAX_TOKENS: int = 12000
 
     DEVICE: str = "cpu"
 
