@@ -1,5 +1,3 @@
-# tests/test_prompt_safety.py
-
 import pytest
 import logging
 

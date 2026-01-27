@@ -5,11 +5,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """Application configuration settings using Pydantic BaseSettings."""
 
+    APP_HOST: str = "0.0.0.0"
+    APP_PORT: int = 8000
+
     CHAT_COMPLETION_HOST: str = "silma-kashif-2b-rag"
     CHAT_COMPLETION_PORT: int = 9091
     CHAT_COMPLETION_MODEL_ID: str = "silma-ai/SILMA-Kashif-2B-Instruct-v1.0"
     CHAT_COMPLETION_TIMEOUT_SECONDS: int = 30
-    CHAT_COMPLETION_MAX_TOKENS: int = 512
     CHAT_COMPLETION_TEMPERATURE: float = 0.5
     CHAT_COMPLETION_TOP_P: float = 0.95
     CHAT_COMPLETION_MAX_TOKENS: int = 12000

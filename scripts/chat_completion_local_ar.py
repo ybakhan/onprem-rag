@@ -6,8 +6,6 @@ SAMPLE_QUESTION = "كيف يمكن الوصول إلى المكتبات العا
 
 response = chat_completion_local(SAMPLE_QUESTION, "ar")
 
-# assistant_response = response[0]["generated_text"][-1]["content"].strip()
-
 # save to file for better Arabic text display
 with open("response.json", "w", encoding="utf-8") as f:
     json.dump(response, f, indent=2, ensure_ascii=False)

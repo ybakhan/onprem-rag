@@ -1,4 +1,3 @@
-# tests/test_user_service.py
 import shutil
 from pathlib import Path
 import pytest
@@ -45,8 +44,8 @@ def test_index_embed(lang, question):
     documents = index_embed_pdf(document_path, lang)
     assert len(documents) == 0
 
-    answer = chat_completion(question, lang)
-    # answer = chat_completion_local(question, lang)
+    answer = chat_completion(question, lang)[0]
+    # answer = chat_completion_local(question, lang)[0]
     assert len(answer) > 0
 
     if lang == "ar":

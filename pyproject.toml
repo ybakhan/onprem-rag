@@ -15,6 +15,7 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "debugpy>=1.8.19",
     "llm-guard>=0.3.16",
+    "fastapi[standard]>=0.128.0",
 ]
 
 
@@ -31,4 +32,8 @@ dev = [
 ]
 
 [tool.pylint."MESSAGES CONTROL"]
-disable = ["missing-module-docstring"]
+disable = [
+    "missing-module-docstring",
+    "logging-too-many-args",
+    "logging-fstring-interpolation",
+]
