@@ -5,6 +5,7 @@ import uuid
 from datetime import datetime
 from fastapi import APIRouter, Body, HTTPException
 from .core.chat_completion_local import chat_completion_local
+from .core.chat_completion import chat_completion
 from .config import settings
 from .schemas import ChatCompletionRequest, Model, ModelsResponse
 from .middleware import request_id_var
@@ -19,21 +20,24 @@ async def chat_completions(req: ChatCompletionRequest = Body(...)):
 
     start_time = time.time()
     request_id = request_id_var.get()
+    lang = settings.CHAT_COMPLETION_LANG
 
     try:
         logger.debug(
             f"Processing chat completion request [ID: {request_id}] with params: "
-            f"lang={req.lang}, max_tokens={req.max_tokens}, "
+            f"lang={lang}, max_tokens={req.max_tokens}, "
             f"temperature={req.temperature}, top_p={req.top_p}"
         )
 
         # convert pydantic message to dict
         previous_messages_dicts = [msg.model_dump() for msg in req.messages[:-1]]
 
-        content, prompt_tokens, completion_tokens = chat_completion_local(
+        chat_completion_func = chat_completion_local if settings.CHAT_COMPLETION_LOCAL else chat_completion
+
+        content, prompt_tokens, completion_tokens = chat_completion_func(
             previous_messages=previous_messages_dicts,
             question=req.messages[-1].content,
-            lang=req.lang,
+            lang=lang,
             max_tokens=req.max_tokens,
             temperature=req.temperature,
             top_p=req.top_p,

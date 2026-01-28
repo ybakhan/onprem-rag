@@ -15,7 +15,7 @@ class ChatCompletionRequest(BaseModel):
     """Chat completion request model."""
 
     messages: list[Message] = Field(..., min_items=1)
-    lang: str = "en"
+    # lang: str = Field(settings.CHAT_COMPLETION_LANG)
     max_tokens: int = Field(settings.CHAT_COMPLETION_MAX_TOKENS, ge=1)
     temperature: float = Field(settings.CHAT_COMPLETION_TEMPERATURE, ge=0.0, le=2.0)
     top_p: float = Field(settings.CHAT_COMPLETION_TOP_P, ge=0.0, le=1.0)
