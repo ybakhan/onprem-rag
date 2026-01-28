@@ -1,5 +1,6 @@
 import logging
 
+from typing import List
 from pydantic import BaseModel, Field, field_validator
 from .config import settings
 
@@ -27,3 +28,15 @@ class ChatCompletionRequest(BaseModel):
         if messages[-1].role != "user":
             raise ValueError("The last message must be from the user.")
         return messages
+
+class Model(BaseModel):
+    """Model information."""
+    id: str
+    object: str = "model"
+    created: int = 0
+    owned_by: str = "distant-light"
+
+class ModelsResponse(BaseModel):
+    """Models response model."""
+    object: str = "list"
+    data: List[Model]

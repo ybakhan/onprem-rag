@@ -2,11 +2,11 @@ import logging
 import time
 import uuid
 
-
+from datetime import datetime
 from fastapi import APIRouter, Body, HTTPException
 from .core.chat_completion_local import chat_completion_local
 from .config import settings
-from .schemas import ChatCompletionRequest
+from .schemas import ChatCompletionRequest, Model, ModelsResponse
 from .middleware import request_id_var
 
 logger = logging.getLogger(__name__)
@@ -75,3 +75,14 @@ async def chat_completions(req: ChatCompletionRequest = Body(...)):
                 "type": "server_error"
             }
         }) from e
+
+@router.get("/models")
+async def list_models():
+    """List available models."""
+    now = int(datetime.utcnow().timestamp())
+
+    available_models = [
+        Model(id=settings.CHAT_COMPLETION_MODEL_ID, created=now),
+    ]
+
+    return ModelsResponse(data=available_models)
