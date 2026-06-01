@@ -1,5 +1,15 @@
 # OnPrem RAG
 
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.128-009688?logo=fastapi&logoColor=white)
+![LlamaIndex](https://img.shields.io/badge/LlamaIndex-RAG-f97316?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PC9zdmc+)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-vector_store-E25F27)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-embeddings-FFD21E?logo=huggingface&logoColor=black)
+![LLM Guard](https://img.shields.io/badge/LLM_Guard-prompt_safety-8B5CF6)
+![uv](https://img.shields.io/badge/uv-package_manager-DE5FE9)
+![pytest](https://img.shields.io/badge/pytest-tested-0A9EDC?logo=pytest&logoColor=white)
+![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)
+
 A fully on-premises Retrieval-Augmented Generation (RAG) service with an OpenAI-compatible API. Index PDF documents into a local vector store and query them through a chat completion endpoint — no data leaves your infrastructure.
 
 ## Features
@@ -134,21 +144,28 @@ src/app/
 ├── schemas.py      # Request / response models
 ├── middleware.py   # Request ID injection
 ├── errors.py       # Exception handlers
+├── templates/
+│   ├── chat_completion_en.jinja
+│   └── chat_completion_ar.jinja
 └── core/
-    ├── indexer.py          # PDF → vector store pipeline
+    ├── indexer.py               # PDF → vector store pipeline
     ├── ingestion_pipeline.py
     ├── embedding_model.py
-    ├── vector_store.py     # ChromaDB wrapper
+    ├── vector_store.py          # ChromaDB wrapper
     ├── document_store.py
-    ├── query.py            # RAG retrieval
+    ├── query.py                 # RAG retrieval
     ├── chat_completion.py       # Remote TGI inference
     ├── chat_completion_local.py # Local inference
-    ├── scanner.py          # LLM Guard prompt safety
-    └── prompt.py           # Prompt templates
+    ├── scanner.py               # LLM Guard prompt safety
+    ├── prompt.py                # Prompt templates
+    ├── common.py
+    └── exceptions.py
 
 scripts/
-├── index_pdf_dir.py        # Batch PDF indexing
-├── chat_completion_en.py   # English test client
-├── chat_completion_ar.py   # Arabic test client
-└── translate.py            # Translation utilities
+├── index_pdf_dir.py            # Batch PDF indexing
+├── chat_completion_en.py       # English test client (direct)
+├── chat_completion_ar.py       # Arabic test client (direct)
+├── chat_completion_tgi_en.py   # English test client (TGI)
+├── chat_completion_tgi_ar.py   # Arabic test client (TGI)
+└── chat_completion_local_ar.py # Arabic test client (local inference)
 ```
