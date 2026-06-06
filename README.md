@@ -1,4 +1,4 @@
-# OnPrem RAG
+# Sovereign RAG
 
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.128-009688?logo=fastapi&logoColor=white)
@@ -10,7 +10,7 @@
 ![pytest](https://img.shields.io/badge/pytest-tested-0A9EDC?logo=pytest&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)
 
-A fully on-premises Retrieval-Augmented Generation (RAG) service with an OpenAI-compatible API. Index PDF documents into a local vector store and query them through a chat completion endpoint — no data leaves your infrastructure.
+A fully sovereign Retrieval-Augmented Generation (RAG) service — own your documents, your embeddings, and your inference. OpenAI-compatible API backed entirely by open-source models running on your own infrastructure. No data leaves your environment, no vendor dependency, no API keys required.
 
 ## Features
 
