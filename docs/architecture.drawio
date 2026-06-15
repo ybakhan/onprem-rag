@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36">
   <diagram name="Page-1" id="8aAQo3B1mr5lyNhHzEXg">
-    <mxGraphModel dx="1231" dy="652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1204" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -88,14 +88,14 @@
             <mxPoint x="450" y="442" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EW9aP2V9X8y8UaFlLVY2-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Resonate UI&lt;/b&gt;&lt;br&gt;&lt;br&gt;- upload, index documents&lt;div&gt;- chatbot assistant&lt;/div&gt;" vertex="1">
+        <mxCell id="EW9aP2V9X8y8UaFlLVY2-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Sovereign Assistant&lt;/b&gt;&lt;br&gt;&lt;br&gt;- upload, index documents&lt;div&gt;- chatbot assistant&lt;/div&gt;" vertex="1">
           <mxGeometry height="100" width="160" x="18.13" y="72" as="geometry" />
         </mxCell>
         <mxCell id="EW9aP2V9X8y8UaFlLVY2-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Vector Store&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- embedding vectors&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- document chunks&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;- metadata&lt;/div&gt;" vertex="1">
           <mxGeometry height="85" width="175" x="540" y="325" as="geometry" />
         </mxCell>
-        <mxCell id="EW9aP2V9X8y8UaFlLVY2-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Resonate&lt;/font&gt;&amp;nbsp;&lt;/b&gt;" vertex="1">
-          <mxGeometry height="50" width="150" x="340" y="10" as="geometry" />
+        <mxCell id="EW9aP2V9X8y8UaFlLVY2-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Sovereign RAG&lt;/font&gt;&amp;nbsp;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="50" width="200" x="340" y="10" as="geometry" />
         </mxCell>
         <mxCell id="EW9aP2V9X8y8UaFlLVY2-39" edge="1" parent="1" source="EW9aP2V9X8y8UaFlLVY2-30" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="EW9aP2V9X8y8UaFlLVY2-29" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">

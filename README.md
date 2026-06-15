@@ -10,16 +10,22 @@
 ![pytest](https://img.shields.io/badge/pytest-tested-0A9EDC?logo=pytest&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)
 
-A fully sovereign Retrieval-Augmented Generation (RAG) service — own your documents, your embeddings, and your inference. OpenAI-compatible API backed entirely by open-source models running on your own infrastructure. No data leaves your environment, no vendor dependency, no API keys required.
+A fully sovereign Retrieval-Augmented Generation (RAG) service that lets you own your documents, your embeddings, and your inference. OpenAI-compatible API backed entirely by open-source models running on your own infrastructure. No data leaves your environment, no vendor dependency, no API keys required.
+
+## Architecture
+
+![Sovereign RAG architecture](docs/architecture.png)
+
+The service drives two flows over a shared embedding model and vector store. **Indexing**: documents are extracted page by page, chunked, embedded, and written to the ChromaDB vector store alongside a JSON document store for backup and deduplication. **Chat**: an incoming query is safety-checked, embedded, matched against the top-K most relevant chunks, and answered by the chat model from that retrieved context. Everything runs locally, so no data leaves your environment.
 
 ## Features
 
-- **OpenAI-compatible API** — drop-in replacement for `/v1/chat/completions` and `/v1/models`
-- **PDF ingestion pipeline** — extracts, chunks, and embeds PDF content into ChromaDB
-- **Multilingual** — Arabic and English support (switchable via `CHAT_COMPLETION_LANG`)
-- **Prompt safety** — built-in LLM Guard scanning for token limits, invisible text, toxicity, and prompt injection
-- **Flexible inference** — connect to a remote TGI server or run a model locally
-- **Stable chunk IDs** — content-hashed document chunks for idempotent re-indexing
+- **OpenAI-compatible API**: drop-in replacement for `/v1/chat/completions` and `/v1/models`
+- **PDF ingestion pipeline**: extracts, chunks, and embeds PDF content into ChromaDB
+- **Multilingual**: Arabic and English support (switchable via `CHAT_COMPLETION_LANG`)
+- **Prompt safety**: built-in LLM Guard scanning for token limits, invisible text, toxicity, and prompt injection
+- **Flexible inference**: connect to a remote TGI server or run a model locally
+- **Stable chunk IDs**: content-hashed document chunks for idempotent re-indexing
 
 ## Stack
 
@@ -55,7 +61,7 @@ huggingface-cli login
 Copy and edit the example below, or create a `.env` file:
 
 ```bash
-# Required — path to your HuggingFace model cache
+# Required: path to your HuggingFace model cache
 EMBEDDING_MODEL_DIR=~/.cache/huggingface/hub
 
 # Optional overrides (defaults shown)
@@ -77,7 +83,7 @@ See [src/app/config.py](src/app/config.py) for the full list of settings.
 CONTENT_DIR="./tests/docs/en" CONTENT_LANG="en" python ./scripts/index_pdf_dir.py
 ```
 
-Point `CONTENT_DIR` at any folder of PDFs. Re-running is safe — chunks are identified by a content hash and won't be duplicated.
+Point `CONTENT_DIR` at any folder of PDFs. Re-running is safe, since chunks are identified by a content hash and won't be duplicated.
 
 ### Start the server
 
